@@ -1,6 +1,6 @@
 {
   "name": "loop-stream",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A template for creating npm packages using TypeScript and VSCode",
   "main": "./lib/src/index.js",
   "files": [
