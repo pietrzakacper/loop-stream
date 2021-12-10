@@ -23,7 +23,7 @@ describe('loopStream()', () => {
     let savedChunk: Buffer | undefined;
 
     // continue after first iteration and then end with the first chunk
-    await loopStream<undefined>(inStream, chunk => {
+    await loopStream(inStream, chunk => {
       if (!savedChunk) {
         savedChunk = chunk;
         return { action: 'continue' };
