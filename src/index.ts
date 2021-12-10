@@ -1,13 +1,11 @@
 import { Readable } from 'stream';
 
-export function loopStream<T extends unknown>(
+export function loopStream(
   stream: Readable,
   iter: (
     chunk: Buffer
-  ) =>
-    | { action: 'continue' }
-    | { action: 'end'; data: T; unconsumedData?: Buffer }
-): Promise<T> {
+  ) => { action: 'continue' } | { action: 'end'; unconsumedData?: Buffer }
+): Promise<void> {
   return new Promise((res, rej) => {
     const onReadable = () => {
       let chunk;
@@ -25,7 +23,7 @@ export function loopStream<T extends unknown>(
           stream.unshift(result.unconsumedData);
         }
 
-        res(result.data);
+        res();
         break;
       }
     };
