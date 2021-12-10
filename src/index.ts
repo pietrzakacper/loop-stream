@@ -35,5 +35,7 @@ export function loopStream<T extends unknown>(
     // run it in case readable was already triggered
     onReadable();
     stream.on('readable', onReadable);
+
+    // @TODO handle case when stream is closed at the beginning
   });
 }
