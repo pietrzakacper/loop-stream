@@ -8,7 +8,7 @@
 [![Commitizen Friendly][commitizen-img]][commitizen-url]
 [![Semantic Release][semantic-release-img]][semantic-release-url]
 
-> My awesome module
+> Simple function for looping your stream. Useful for extracting information from some Readable stream.
 
 ## Install
 
@@ -19,33 +19,23 @@ npm install loop-stream
 ## Usage
 
 ```ts
-import { myPackage } from 'loop-stream';
+import { loopStream } from 'loop-stream';
 
-myPackage('hello');
-//=> 'hello from my package'
+let bufferedData = Buffer.from([])
+
+await loopStream(logs, (chunk) => {
+  bufferedData = Buffer.concat(bufferedData, chunk)
+
+  // find specific string of characters in the stream e.g."Server started" in log stream 
+  if(bufferedData.toString('utf-8').contains('Server started')) {
+    return { action: 'end' }
+  }
+  
+  return { action: 'continue' }
+});
+
+// Now you can keep consuming your logs stream knowing that 'Server started' appeared!
 ```
-
-## API
-
-### myPackage(input, options?)
-
-#### input
-
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-Type: `object`
-
-##### postfix
-
-Type: `string`
-Default: `rainbows`
-
-Lorem ipsum.
-
 [build-img]:https://github.com/pietrzakacper/loop-stream/actions/workflows/release.yml/badge.svg
 [build-url]:https://github.com/pietrzakacper/loop-stream/actions/workflows/release.yml
 [downloads-img]:https://img.shields.io/npm/dt/loop-stream
