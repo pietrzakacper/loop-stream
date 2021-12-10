@@ -8,7 +8,7 @@
 [![Commitizen Friendly][commitizen-img]][commitizen-url]
 [![Semantic Release][semantic-release-img]][semantic-release-url]
 
-> Simple function for looping your stream. Useful for extracting information from some Readable stream.
+> Simple function for looping your stream. Useful for extracting information from some readable stream.
 
 ## Install
 
