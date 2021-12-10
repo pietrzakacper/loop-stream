@@ -4,7 +4,7 @@ export function loopStream(
   stream: Readable,
   iter: (
     chunk: Buffer
-  ) => { action: 'continue' } | { action: 'end'; unconsumedData?: Buffer }
+  ) => { action: 'continue' } | { action: 'break'; unconsumedData?: Buffer }
 ): Promise<void> {
   return new Promise((res, rej) => {
     const onReadable = () => {

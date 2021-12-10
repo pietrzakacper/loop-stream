@@ -28,7 +28,7 @@ await loopStream(logs, (chunk) => {
 
   // find specific string of characters in the stream e.g."Server started" in log stream 
   if(bufferedData.toString('utf-8').contains('Server started')) {
-    return { action: 'end' }
+    return { action: 'break' }
   }
   
   return { action: 'continue' }

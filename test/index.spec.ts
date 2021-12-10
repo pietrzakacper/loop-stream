@@ -7,7 +7,7 @@ describe('loopStream()', () => {
     inStream.write('Hello');
 
     const result = loopStream(inStream, () => ({
-      action: 'end',
+      action: 'break',
     }));
 
     await expect(result).resolves.not.toThrow();
@@ -29,7 +29,7 @@ describe('loopStream()', () => {
         return { action: 'continue' };
       }
 
-      return { action: 'end' };
+      return { action: 'break' };
     });
 
     expect(savedChunk).toEqual(chunkToWrite);
