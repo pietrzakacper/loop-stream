@@ -1,5 +1,5 @@
 {
-  "name": "typescript-npm-package-template",
+  "name": "loop-stream",
   "version": "0.0.0-development",
   "description": "A template for creating npm packages using TypeScript and VSCode",
   "main": "./lib/src/index.js",
@@ -20,13 +20,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ryansonshine/typescript-npm-package-template.git"
+    "url": "git+https://github.com/pietrzakacper/loop-stream.git"
   },
   "license": "MIT",
   "author": {
-    "name": "Ryan Sonshine",
-    "email": "ryansonshine@users.noreply.github.com",
-    "url": "https://github.com/ryansonshine"
+    "name": "Kacper Pietrzak",
+    "email": "pietrzakacper@users.noreply.github.com",
+    "url": "https://github.com/pietrzakacper"
   },
   "engines": {
     "node": ">=12.0"
@@ -43,9 +43,9 @@
     "codecov"
   ],
   "bugs": {
-    "url": "https://github.com/ryansonshine/typescript-npm-package-template/issues"
+    "url": "https://github.com/pietrzakacper/loop-stream/issues"
   },
-  "homepage": "https://github.com/ryansonshine/typescript-npm-package-template#readme",
+  "homepage": "https://github.com/pietrzakacper/loop-stream#readme",
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "^26.0.24",

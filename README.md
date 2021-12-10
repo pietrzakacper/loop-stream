@@ -1,4 +1,4 @@
-# typescript-npm-package-template
+# loop-stream
 
 > Template to kickstart creating a Node.js module using TypeScript and VSCode
 
@@ -7,10 +7,10 @@ Inspired by [node-module-boilerplate](https://github.com/sindresorhus/node-modul
 ## Features
 
 - [Semantic Release](https://github.com/semantic-release/semantic-release)
-- [Issue Templates](https://github.com/ryansonshine/typescript-npm-package-template/tree/main/.github/ISSUE_TEMPLATE)
-- [GitHub Actions](https://github.com/ryansonshine/typescript-npm-package-template/tree/main/.github/workflows)
+- [Issue Templates](https://github.com/pietrzakacper/loop-stream/tree/main/.github/ISSUE_TEMPLATE)
+- [GitHub Actions](https://github.com/pietrzakacper/loop-stream/tree/main/.github/workflows)
 - [Codecov](https://about.codecov.io/)
-- [VSCode Launch Configurations](https://github.com/ryansonshine/typescript-npm-package-template/blob/main/.vscode/launch.json)
+- [VSCode Launch Configurations](https://github.com/pietrzakacper/loop-stream/blob/main/.vscode/launch.json)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Husky](https://github.com/typicode/husky)
 - [Lint Staged](https://github.com/okonet/lint-staged)
@@ -28,7 +28,7 @@ Inspired by [node-module-boilerplate](https://github.com/sindresorhus/node-modul
 Alternatively, create a new directory and then run:
 
 ```bash
-curl -fsSL https://github.com/ryansonshine/typescript-npm-package-template/archive/main.tar.gz | tar -xz --strip-components=1
+curl -fsSL https://github.com/pietrzakacper/loop-stream/archive/main.tar.gz | tar -xz --strip-components=1
 ```
 
 Replace `FULL_NAME`, `GITHUB_USER`, and `REPO_NAME` in the script below with your own details to personalize your new package:
@@ -37,7 +37,7 @@ Replace `FULL_NAME`, `GITHUB_USER`, and `REPO_NAME` in the script below with you
 FULL_NAME="John Smith"
 GITHUB_USER="johnsmith"
 REPO_NAME="my-cool-package"
-sed -i.mybak "s/ryansonshine/$GITHUB_USER/g; s/typescript-npm-package-template\|my-package-name/$REPO_NAME/g; s/Ryan Sonshine/$FULL_NAME/g" package.json package-lock.json README.md
+sed -i.mybak "s/pietrzakacper/$GITHUB_USER/g; s/loop-stream\|loop-stream/$REPO_NAME/g; s/Kacper Pietrzak/$FULL_NAME/g" package.json package-lock.json README.md
 rm *.mybak
 ```
 
@@ -53,7 +53,7 @@ Enable the Codecov GitHub App [here](https://github.com/apps/codecov).
 
 ---
 
-# my-package-name
+# loop-stream
 
 [![npm package][npm-img]][npm-url]
 [![Build Status][build-img]][build-url]
@@ -68,13 +68,13 @@ Enable the Codecov GitHub App [here](https://github.com/apps/codecov).
 ## Install
 
 ```bash
-npm install my-package-name
+npm install loop-stream
 ```
 
 ## Usage
 
 ```ts
-import { myPackage } from 'my-package-name';
+import { myPackage } from 'loop-stream';
 
 myPackage('hello');
 //=> 'hello from my package'
@@ -101,16 +101,16 @@ Default: `rainbows`
 
 Lorem ipsum.
 
-[build-img]:https://github.com/ryansonshine/typescript-npm-package-template/actions/workflows/release.yml/badge.svg
-[build-url]:https://github.com/ryansonshine/typescript-npm-package-template/actions/workflows/release.yml
-[downloads-img]:https://img.shields.io/npm/dt/typescript-npm-package-template
-[downloads-url]:https://www.npmtrends.com/typescript-npm-package-template
-[npm-img]:https://img.shields.io/npm/v/typescript-npm-package-template
-[npm-url]:https://www.npmjs.com/package/typescript-npm-package-template
-[issues-img]:https://img.shields.io/github/issues/ryansonshine/typescript-npm-package-template
-[issues-url]:https://github.com/ryansonshine/typescript-npm-package-template/issues
-[codecov-img]:https://codecov.io/gh/ryansonshine/typescript-npm-package-template/branch/main/graph/badge.svg
-[codecov-url]:https://codecov.io/gh/ryansonshine/typescript-npm-package-template
+[build-img]:https://github.com/pietrzakacper/loop-stream/actions/workflows/release.yml/badge.svg
+[build-url]:https://github.com/pietrzakacper/loop-stream/actions/workflows/release.yml
+[downloads-img]:https://img.shields.io/npm/dt/loop-stream
+[downloads-url]:https://www.npmtrends.com/loop-stream
+[npm-img]:https://img.shields.io/npm/v/loop-stream
+[npm-url]:https://www.npmjs.com/package/loop-stream
+[issues-img]:https://img.shields.io/github/issues/pietrzakacper/loop-stream
+[issues-url]:https://github.com/pietrzakacper/loop-stream/issues
+[codecov-img]:https://codecov.io/gh/pietrzakacper/loop-stream/branch/main/graph/badge.svg
+[codecov-url]:https://codecov.io/gh/pietrzakacper/loop-stream
 [semantic-release-img]:https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
 [semantic-release-url]:https://github.com/semantic-release/semantic-release
 [commitizen-img]:https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
