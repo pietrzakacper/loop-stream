@@ -64,21 +64,25 @@ function loopStreamWithoutState(
     let chunk;
 
     const onReadable = () => {
-      while ((chunk = stream.read()) !== null) {
-        const result = iter(chunk);
+      try {
+        while ((chunk = stream.read()) !== null) {
+          const result = iter(chunk);
 
-        if (result.action === 'continue') {
-          continue;
+          if (result.action === 'continue') {
+            continue;
+          }
+
+          cleanup();
+
+          if (typeof result.unconsumedData !== undefined) {
+            stream.unshift(result.unconsumedData);
+          }
+
+          res();
+          break;
         }
-
-        cleanup();
-
-        if (typeof result.unconsumedData !== undefined) {
-          stream.unshift(result.unconsumedData);
-        }
-
-        res();
-        break;
+      } catch (err) {
+        rej(err);
       }
     };
 
@@ -115,22 +119,26 @@ function loopStreamWithState<Acc>(
     };
 
     const onReadable = () => {
-      while ((chunk = stream.read()) !== null) {
-        const result = iter(chunk, acc);
-        acc = result.acc;
+      try {
+        while ((chunk = stream.read()) !== null) {
+          const result = iter(chunk, acc);
+          acc = result.acc;
 
-        if (result.action === 'continue') {
-          continue;
+          if (result.action === 'continue') {
+            continue;
+          }
+
+          cleanup();
+
+          if (typeof result.unconsumedData !== 'undefined') {
+            stream.unshift(result.unconsumedData);
+          }
+
+          res(acc);
+          break;
         }
-
-        cleanup();
-
-        if (typeof result.unconsumedData !== 'undefined') {
-          stream.unshift(result.unconsumedData);
-        }
-
-        res(acc);
-        break;
+      } catch (err) {
+        rej(err);
       }
     };
 

@@ -79,4 +79,42 @@ describe('loopStream()', () => {
 
     expect(result).toEqual([{ name: 'Jakob' }, { name: 'Angel' }]);
   });
+
+  it('rejects when stream emits error', async () => {
+    const stream = new PassThrough();
+
+    const resultPromised = loopStream(stream, () => {
+      return { action: 'continue' };
+    });
+
+    stream.write('Hello');
+    stream.emit('error', new Error('Oopsie!'));
+
+    await expect(resultPromised).rejects.toEqual(new Error('Oopsie!'));
+  });
+
+  it('rejects when callback throws error', async () => {
+    const stream = new PassThrough();
+
+    const resultPromised = loopStream(stream, () => {
+      throw new Error('Something went wrong');
+    });
+
+    stream.write('Hello');
+
+    await expect(resultPromised).rejects.toEqual(
+      new Error('Something went wrong')
+    );
+  });
+
+  it('resolves when stream is destroyed', async () => {
+    const stream = new PassThrough();
+    stream.destroy();
+
+    const resultPromised = loopStream(stream, () => {
+      return { action: 'continue' };
+    });
+
+    await expect(resultPromised).resolves.toEqual(undefined);
+  });
 });
