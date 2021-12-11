@@ -1,7 +1,7 @@
 {
   "name": "loop-stream",
-  "version": "1.1.0",
-  "description": "A template for creating npm packages using TypeScript and VSCode",
+  "version": "1.4.1",
+  "description": "Simple function for looping your Node.js stream with C-like for loop features: break and continue",
   "main": "./lib/src/index.js",
   "files": [
     "lib/**/*"
@@ -32,15 +32,14 @@
     "node": ">=12.0"
   },
   "keywords": [
-    "boilerplate",
-    "template",
+    "stream",
+    "loop",
     "typescript",
-    "vscode",
-    "jest",
-    "husky",
-    "commitizen",
-    "semantic-release",
-    "codecov"
+    "node",
+    "reduce",
+    "streams",
+    "accumulate",
+    "consume"
   ],
   "bugs": {
     "url": "https://github.com/pietrzakacper/loop-stream/issues"
