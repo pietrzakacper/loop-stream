@@ -16,12 +16,12 @@ If all you want to do is consume a Node.js stream in total, then probably the ea
 However if you only want to consume it partly, there are some limitations. Using `break` will result in closing the reading stream.
 Imagine the user is writing to `stdin` of your program and you want to reply to their 'Hello" with 'Hi!' and then just leave the stream for consumption to the other part of your application.
 ```ts
-  for await (const chunk of process.stdin) {
-      if(chunk.toString() === 'Hello\n') {
-          console.log('Hi!');
-          break;
-      }
-  }
+for await (const chunk of process.stdin) {
+    if(chunk.toString() === 'Hello\n') {
+        console.log('Hi!');
+        break;
+    }
+}
 
 process.stdin.on('data', (chunk) => {
   // This will never run :(
@@ -113,9 +113,8 @@ Example:
 
 ```ts
 await loopStream(process.stdin, (chunk) => {
-    lastReadChunk = chunk;
     if(chunk === 'Hi\n') {
-        stdout.write('Hello');
+        console.log('Hello');
         return { action: 'break' };
     }
 
