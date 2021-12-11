@@ -45,6 +45,10 @@ function loopStreamWithoutState(
   stream: Readable,
   iter: IterateWithoutState
 ): Promise<void> {
+  if (stream.destroyed) {
+    return Promise.resolve();
+  }
+
   return new Promise((res, rej) => {
     const cleanup = () => {
       stream.off('error', rej);
@@ -92,6 +96,10 @@ function loopStreamWithState<Acc>(
   acc: Acc,
   iter: IterateWithState<Acc>
 ): Promise<Acc> {
+  if (stream.destroyed) {
+    return Promise.resolve(acc);
+  }
+
   let chunk;
 
   return new Promise((res, rej) => {
@@ -128,7 +136,7 @@ function loopStreamWithState<Acc>(
 
     stream.on('error', rej);
 
-    // run it in case readable was already triggered
+    // run it in case 'readable' was already triggered
     onReadable();
     stream.on('readable', onReadable);
     stream.on('end', onEnd);
