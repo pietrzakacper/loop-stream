@@ -38,7 +38,6 @@ export function loopStream<Acc>(
     iterOrAcc as Acc,
     iterWithState as IterateWithState<Acc>
   );
-  // @TODO handle case when stream is closed at the beginning
 }
 
 function loopStreamWithoutState(
