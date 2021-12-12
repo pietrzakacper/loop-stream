@@ -47,7 +47,7 @@ process.stdin.on('data', (chunk) => {
 ## More examples
 
 ### Parsing HTTP headers
-There are some more use case's for this little function.
+There are some more use cases for this little function.
 Let's suppose you want to parse incoming HTTP headers and then read the body using different listeners.
 
 ```ts
